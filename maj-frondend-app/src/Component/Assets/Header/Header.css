@@ -1,0 +1,157 @@
+* {
+  box-sizing: border-box;
+}
+
+.header {
+  width: 100%;
+  height: 70px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 60px;
+  background: #242E64;
+  border-bottom: 1px solid #eeeeee;
+  position: relative;
+  z-index: 100;
+ 
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo img {
+  width: 10vh;
+  height: 10vh;
+  object-fit: contain;
+  display: block;
+  align-self: center;
+  background: transparent;
+}
+
+/* Desktop Navigation */
+
+.desktop-nav {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+
+.desktop-nav a {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.desktop-nav a:hover {
+  color: #777777;
+}
+
+/* Mobile Menu Button */
+
+.menu-btn {
+  display: none;
+  border: none;
+  background: transparent;
+  font-size: 28px;
+  cursor: pointer;
+   color: #ffffff;
+}
+
+/* Drawer */
+
+.mobile-drawer {
+  position: fixed;
+  top: 0;
+  left: -320px;
+  width: 300px;
+  height: 100vh;
+  background: #ffffff;
+  z-index: 1001;
+  padding: 25px;
+  box-shadow: -5px 0 20px rgba(0, 0, 0, 0.15);
+  transition: left 0.3s ease;
+}
+
+.mobile-drawer.open {
+  left: 0;
+}
+
+.drawer-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.close-btn {
+  border: none;
+  background: transparent;
+  font-size: 32px;
+  cursor: pointer;
+}
+
+/* Mobile Navigation */
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+}
+
+.mobile-nav a {
+  text-decoration: none;
+  color: #222222;
+  font-size: 18px;
+  padding: 18px 5px;
+  border-bottom: 1px solid #eeeeee;
+}
+
+.mobile-nav a:hover {
+  color: #777777;
+}
+
+/* Overlay */
+
+.drawer-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 1000;
+}
+
+/* Responsive */
+
+@media (max-width: 768px) {
+  
+  .logo img {
+    /* width: 110px; */
+    height: 10vh;
+  }
+
+  .header {
+    height: 65px;
+    padding: 0 20px;
+  }
+
+  .desktop-nav {
+    display: none;
+  }
+
+  .menu-btn {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-drawer,
+  .drawer-overlay {
+    display: none;
+  }
+}
