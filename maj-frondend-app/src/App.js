@@ -1,4 +1,4 @@
-import { Routes, Route, Link } from "react-router";
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from "./Component/Home/Home";
 import 'font-awesome/css/font-awesome.min.css';
 import Header from "./Component/Assets/Header/Header";

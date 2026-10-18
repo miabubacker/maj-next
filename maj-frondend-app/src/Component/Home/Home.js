@@ -1,4 +1,4 @@
-import {React} from "react";
+
 import "./Home.css";
 import Reveal from '../Assets/Reveal/Reveal.js';
 import WordReveal from '../Assets/WordReveal/WordReveal.js';
@@ -16,7 +16,7 @@ import Catlalogthree from "../Images/catlalogthree.png";
 import Catlalogfour from "../Images/catlalogfour.png";
 import { useState } from "react";
 
-export default function Home() {
+  function Home() {
    const [products, setProducts] = useState([
     { id: 1, alt: "Gold chain necklace", image: Catlalogone },
     { id: 2, alt: "Gold chain bracelet", image: Catlalogtwo },
@@ -118,3 +118,4 @@ export default function Home() {
 </>
   );
 }
+ export default Home

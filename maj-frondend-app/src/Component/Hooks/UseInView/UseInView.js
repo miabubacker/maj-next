@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 
 /** Returns [ref, seen]. `seen` flips to true once the element scrolls into view. */
-export default function useInView(threshold = 0.15) {
+ function useInView(threshold = 0.15) {
   const ref = useRef(null);
   const [seen, setSeen] = useState(false);
 
@@ -18,3 +18,5 @@ export default function useInView(threshold = 0.15) {
 
   return [ref, seen];
 }
+
+export default useInView

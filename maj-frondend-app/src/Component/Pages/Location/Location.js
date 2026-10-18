@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import  { useState } from "react";
 import "./Location.css";
 import Logo from "../../Images/images-removebg-preview.png";
 
