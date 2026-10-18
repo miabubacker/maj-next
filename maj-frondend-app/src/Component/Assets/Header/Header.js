@@ -1,5 +1,5 @@
 
-import {React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import Logo from "../../Images/images-removebg-preview.png";
 import "./Header.css";
 

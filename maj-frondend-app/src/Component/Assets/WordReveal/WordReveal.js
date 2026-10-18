@@ -1,7 +1,7 @@
 import useInView from '../../Hooks/UseInView/UseInView.js';
 
 /** Animates text word by word. <WordReveal as="h1" text="Elegance in Every Touch." /> */
-export default function WordReveal({ as: Tag = 'h2', text, className = '' }) {
+function WordReveal({ as: Tag = 'h2', text, className = '' }) {
   const [ref, seen] = useInView();
   return (
     <Tag ref={ref} className={`words ${seen ? 'is-visible' : ''} ${className}`} aria-label={text}>
@@ -13,3 +13,4 @@ export default function WordReveal({ as: Tag = 'h2', text, className = '' }) {
     </Tag>
   );
 }
+export default WordReveal
