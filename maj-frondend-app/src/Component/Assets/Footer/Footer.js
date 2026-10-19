@@ -1,6 +1,6 @@
 
 import "./Footer.css";
-import BGLOGO from "../../Images/BGLOGO.png.png";
+import BGLOGO from "../../Images/BGLOGO.png 2.png";
 import whatsapp from '../../Images/WhatsApp.png'
  import Insta from '../../Images/Instagram.png'
  import Twitter from '../../Images/Twitter Circled.png'
