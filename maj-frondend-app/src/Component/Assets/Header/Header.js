@@ -1,7 +1,9 @@
 
 import { useState, useEffect } from "react";
 import Logo from "../../Images/images-removebg-preview.png";
+ import Mobilelog from '../../Images/mobile-headerlogo.png'
 import "./Header.css";
+import useMediaQuery from "../UseMediaQuery/UseMediaQuery";
 
 const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
@@ -10,7 +12,7 @@ const Header = () => {
     { name: "Clients", link: "clients" },
     { name: "Contact Us", link: "location" },]);
   const [isScrolled, setIsScrolled] = useState(false);
-
+  const isMobile = useMediaQuery('(max-width: 700px)');
   // Header animation on scroll
   useEffect(() => {
     const handleScroll = () => {
@@ -73,7 +75,21 @@ const Header = () => {
       <header
         className={`header ${isScrolled ? "scrolled" : ""}`}
       >
+        {isMobile?<>
+        <button
+          className="menu-btn"
+          onClick={() => setIsDrawerOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={isDrawerOpen}
+          aria-controls="mobile-drawer"
+        >
+          ☰
+        </button>
         <a className="logo" href="/" aria-label="Home">
+          <img src={Mobilelog} alt="Logo" />
+        </a>
+        </>:<>
+         <a className="logo" href="/" aria-label="Home">
           <img src={Logo} alt="Logo" />
         </a>
 
@@ -84,16 +100,10 @@ const Header = () => {
             </a>
           ))}
         </nav>
+        </>
+       }
 
-        <button
-          className="menu-btn"
-          onClick={() => setIsDrawerOpen(true)}
-          aria-label="Open menu"
-          aria-expanded={isDrawerOpen}
-          aria-controls="mobile-drawer"
-        >
-          ☰
-        </button>
+        
       </header>
 
       {isDrawerOpen && (

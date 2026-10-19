@@ -4,7 +4,7 @@ import Reveal from '../Assets/Reveal/Reveal.js';
 import WordReveal from '../Assets/WordReveal/WordReveal.js';
 import Pic from '../Assets/Pic/Pic.js';
 import BannerModel from "../Images/banner_Model.png";
-import SectionOneImg from "../Images/section1-imgs.png";
+import BannerThree from "../Images/bannerthreeimg.png";
 import BannerModeltwo from "../Images/bannerTwoModel.png";
 import BannerTwoWorking from "../Images/bannerTwoimg.png";
 import bannerThreeUpper from "../Images/bannerThreeUpper.png";
@@ -15,6 +15,7 @@ import Catlalogtwo from "../Images/catlalogtwo.png";
 import Catlalogthree from "../Images/catlalogthree.png";
 import Catlalogfour from "../Images/catlalogfour.png";
 import { useState } from "react";
+import useMediaQuery from "../Assets/UseMediaQuery/UseMediaQuery.js";
 
   function Home() {
    const [products, setProducts] = useState([
@@ -23,6 +24,24 @@ import { useState } from "react";
     { id: 3, alt: "Gold chain earrings", image: Catlalogthree },
     { id: 4, alt: "Gold chain pendant", image: Catlalogfour },
   ]);
+  const isMobile = useMediaQuery('(max-width: 700px)');
+  const [index, setIndex] = useState(0);
+  const [startX, setStartX] = useState(null);
+  const total = products.length;
+
+  const prev = () => setIndex((i) => (i - 1 + total) % total);
+  const next = () => setIndex((i) => (i + 1) % total);
+
+  // swipe support on touch screens
+  const onTouchStart = (e) => setStartX(e.touches[0].clientX);
+  const onTouchEnd = (e) => {
+    if (startX === null) return;
+    const diff = e.changedTouches[0].clientX - startX;
+    if (diff > 40) prev();
+    if (diff < -40) next();
+    setStartX(null);
+  };
+
   return (
 //     <div>
 //       <section className="herobanner">
@@ -79,6 +98,7 @@ import { useState } from "react";
           <p>
             Since 2003, we’ve been making gold chains at our factory in T-Nagar, Chennai — a neighbourhood that has long been the heart of South India’s jewellery tradition. What started as a small, dedicated unit has grown into a trusted name for everyday elegance, with over 100+ happy brand clients across Tamil Nadu.
           </p>
+          
           <a href="/clientales" className="btn">See Clientales</a>
         </Reveal>
       </div>
@@ -98,6 +118,7 @@ import { useState } from "react";
         <Pic src={bannerThreeMiddle} className="collage__img craft-1" />
         <Pic src={bannerThreeUpper} className="collage__img craft-2" />
         <Pic src={bannerThreeLower} className="collage__img craft-3" />
+        <Pic src={BannerThree} className="collagemobile"/>
       </Reveal>
     </section>
     {/* section-4 */}
@@ -106,13 +127,37 @@ import { useState } from "react";
       <Reveal as="p" className="products__intro" delay={0.2}>
         Every piece we make is designed to be worn daily — light enough for comfort, strong enough to last, and beautiful enough to mark even the simplest of moments as special.
       </Reveal>
-      <ul className="product-grid">
-        {products.map((p, i) => (
-          <Reveal as="li" key={p.id} delay={i * 0.12}>
-            <Pic src={p.image} alt={p.alt} className="ph--arch" />
-          </Reveal>
-        ))}
-      </ul>
+
+      {isMobile ? (
+        <div className="carousel" role="group" aria-roledescription="carousel" aria-label="Featured products">
+          <button className="carousel__btn" onClick={prev} aria-label="Previous product">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M15 5l-7 7 7 7" /></svg>
+          </button>
+
+          <div className="carousel__viewport" onTouchStart={onTouchStart} onTouchEnd={onTouchEnd}>
+            <ul className="carousel__track" style={{ transform: `translateX(-${index * 100}%)` }}>
+              {products.map((p, i) => (
+                <li key={p.id} aria-hidden={i !== index}>
+                  <Pic src={p.image} alt={p.alt} className="carousel__img" />
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <button className="carousel__btn" onClick={next} aria-label="Next product">
+            <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="M9 5l7 7-7 7" /></svg>
+          </button>
+        </div>
+      ) : (
+        <ul className="product-grid">
+          {products.map((p, i) => (
+            <Reveal as="li" key={p.id} delay={i * 0.12}>
+              <Pic src={p.image} alt={p.alt} className="ph--arch" />
+            </Reveal>
+          ))}
+        </ul>
+      )}
+
       <a href="/products" className="btn">See all</a>
     </section>
 </>
