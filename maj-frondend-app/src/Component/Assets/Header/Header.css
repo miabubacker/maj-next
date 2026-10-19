@@ -261,6 +261,10 @@ font-family: "Inter";
     align-items: center;
     height: 50px;
     padding: 0 8px;
+   background-color: #ffffff;
+  }
+  .header.scrolled {
+    background-color: transparent; 
   }
 
   .header .menu-btn {
