@@ -89,6 +89,15 @@ const Header = () => {
           <img src={Mobilelog} alt="Logo" />
         </a>
         </>:<>
+         <button
+          className="menu-btn"
+          onClick={() => setIsDrawerOpen(true)}
+          aria-label="Open menu"
+          aria-expanded={isDrawerOpen}
+          aria-controls="mobile-drawer"
+        >
+          ☰
+        </button>
          <a className="logo" href="/" aria-label="Home">
           <img src={Logo} alt="Logo" />
         </a>

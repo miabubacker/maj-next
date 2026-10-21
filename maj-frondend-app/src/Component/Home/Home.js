@@ -25,6 +25,15 @@ import useMediaQuery from "../Assets/UseMediaQuery/UseMediaQuery.js";
     { id: 4, alt: "Gold chain pendant", image: Catlalogfour },
   ]);
   const isMobile = useMediaQuery('(max-width: 700px)');
+   const [sectionTextContent,setSectionTextContent]=useState({stair:{
+    header1:'Everyday Gold,',
+    header2:'Crafted With Care,',
+    header3:'Since 2003.',
+    paragraph:'Since 2003, we’ve been making gold chains at our factory in T-Nagar, Chennai — a neighbourhood that has long been the heart of South India’s jewellery tradition. What started as a small, dedicated unit has grown into a trusted name for everyday elegance, with over 100+ happy brand clients across Tamil Nadu.'
+   },section3:{
+paragraph:' Over the past two decades, our focus has never changed: honest craftsmanship, personal attention, and jewellery that fits seamlessly into real life. From our factory, we proudly serve customers across Tamil Nadu, building relationships one chain at a time.'
+   }
+   })
   const [index, setIndex] = useState(0);
   const [startX, setStartX] = useState(null);
   const total = products.length;
@@ -83,43 +92,88 @@ import useMediaQuery from "../Assets/UseMediaQuery/UseMediaQuery.js";
     </section>
     {/* section-2 */}
     <section className="split split--story" id="about">
-      <Reveal direction="left" className="collage collage--gold" aria-hidden="true">
+       {isMobile?(<>
+       <div className="split__text">
+        <h2 className="stair">
+          <Reveal as="span">{sectionTextContent.stair.header1}</Reveal>
+          <Reveal as="span" delay={0.15}>{sectionTextContent.stair.header2}</Reveal>
+          <Reveal as="span" delay={0.3}>{sectionTextContent.stair.header3}</Reveal>
+        </h2>
+        <Reveal className="copy" delay={0.2}>
+          <p>
+{sectionTextContent.stair.paragraph}
+          </p>
+          
+        </Reveal>
+      </div>
+       <Reveal direction="left" className="collage collage--gold" aria-hidden="true">
+        <Pic src={BannerModeltwo} className="collage__img story-1" />
+        <Pic src={BannerTwoWorking} className="collage__img story-2" />
+      </Reveal>
+         <a href="/clientales" className="btn">See Clientales</a>
+       </>):(
+    <>
+     <Reveal direction="left" className="collage collage--gold" aria-hidden="true">
         <Pic src={BannerModeltwo} className="collage__img story-1" />
         <Pic src={BannerTwoWorking} className="collage__img story-2" />
       </Reveal>
 
       <div className="split__text">
         <h2 className="stair">
-          <Reveal as="span">Everyday Gold,</Reveal>
-          <Reveal as="span" delay={0.15}>Crafted With Care,</Reveal>
-          <Reveal as="span" delay={0.3}>Since 2003.</Reveal>
+       <Reveal as="span">{sectionTextContent.stair.header1}</Reveal>
+          <Reveal as="span" delay={0.15}>{sectionTextContent.stair.header2}</Reveal>
+          <Reveal as="span" delay={0.3}>{sectionTextContent.stair.header3}</Reveal>
         </h2>
         <Reveal className="copy" delay={0.2}>
           <p>
-            Since 2003, we’ve been making gold chains at our factory in T-Nagar, Chennai — a neighbourhood that has long been the heart of South India’s jewellery tradition. What started as a small, dedicated unit has grown into a trusted name for everyday elegance, with over 100+ happy brand clients across Tamil Nadu.
+           {sectionTextContent.stair.paragraph}
           </p>
           
           <a href="/clientales" className="btn">See Clientales</a>
         </Reveal>
       </div>
+    </>)}
     </section>
     {/* section-3 */}
       <section className="split split--craft">
+        {isMobile?(<>
+         <div className="split__text">
+        <h2 className="visually-hidden">Our craft</h2>
+        <Reveal className="copy">
+          <p>
+           {sectionTextContent.section3.paragraph}
+          </p>
+         
+        </Reveal>
+      </div>
+      <Reveal direction="right" className="collage collage--navy" aria-hidden="true">
+        {/* <Pic src={bannerThreeMiddle} className="collage__img craft-1" />
+        <Pic src={bannerThreeUpper} className="collage__img craft-2" />
+        <Pic src={bannerThreeLower} className="collage__img craft-3" /> */}
+        <Pic src={BannerThree} className="collagemobile"/>
+      </Reveal>
+      {/* <Reveal direction="right" className="collage collage--navy" aria-hidden="true"> */}
+         <a href="#products" className="btn">See Products</a>
+      {/* </Reveal> */}
+
+        
+        </>):(<>
       <div className="split__text">
         <h2 className="visually-hidden">Our craft</h2>
         <Reveal className="copy">
           <p>
-            Over the past two decades, our focus has never changed: honest craftsmanship, personal attention, and jewellery that fits seamlessly into real life. From our factory, we proudly serve customers across Tamil Nadu, building relationships one chain at a time.
+           {sectionTextContent.section3.paragraph}
           </p>
           <a href="#products" className="btn">See Products</a>
         </Reveal>
       </div>
-      <Reveal direction="right" className="collage collage--navy" aria-hidden="true">
+      <Reveal direction="left" className="collage collage--navy" aria-hidden="true">
         <Pic src={bannerThreeMiddle} className="collage__img craft-1" />
         <Pic src={bannerThreeUpper} className="collage__img craft-2" />
         <Pic src={bannerThreeLower} className="collage__img craft-3" />
         <Pic src={BannerThree} className="collagemobile"/>
       </Reveal>
+      </>)}
     </section>
     {/* section-4 */}
     <section className="products" id="products">

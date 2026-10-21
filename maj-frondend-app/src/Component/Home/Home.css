@@ -69,7 +69,7 @@ h1, h2, p { margin: 0; }
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr); align-items: start;
   background: radial-gradient(600px circle at 70% 70%, rgba(80,96,190,.55), transparent 70%), radial-gradient(1000px circle at 60% 80%, rgba(40,48,96,.9), transparent 75%), #080B1A;
 }
-.hero__text { color: #fff; max-width: 487px; }
+.hero__text { color: #fff; max-width: 485px; }
 .hero h1 { font: 900 clamp(40px, 3.6vw, 80px) / 1.34 var(--serif); }
 .hero p { margin-top: 10px; max-width: 439px; font: 400 clamp(18px, 2.1vw, 30px) / 1.2 var(--sans); }
 .hero .btn { margin-top: 28px; }
@@ -220,12 +220,20 @@ justify-self: center ;
     padding-left: 0;
     padding-right: 0;
     align-items: center;
+
 }
 .copy p {
     font: 500 20px / 30px var(--sans);
     letter-spacing: .03em;
     padding: 0 48px;
 }
+.craft-1, .craft-2, .craft-3 {
+  width: 54%;
+}
+.craft-3 ,.craft-2{
+  left: 40%;
+}
+
 }
 
 /* ---------- Tablet (<= 1024px) ---------- */
@@ -304,9 +312,9 @@ justify-self: center ;
     height: 58.4%;
 }
 
-  .split--story, .split--craft , .products__intro{ grid-template-columns: 1fr; padding: 0; gap: 28px; padding:0 20px }
-  .split--story .collage { width: 100%; margin-left:0;order: 2;}
-  .split--craft .collage { width: 100%; margin-left: 0; order: 2;
+  .split--story, .split--craft , .products__intro{ grid-template-columns: 1fr; padding: 0; gap: 28px; padding:20px;overflow: hidden; }
+  .split--story .collage { width: 100%; margin-left:0; overflow: hidden;}
+  .split--craft .collage { width: 100%; margin-left: 0;;
     /* display: none; */
      }
   .split--story .split__text, .split--craft .split__text { padding-top: 0; }
