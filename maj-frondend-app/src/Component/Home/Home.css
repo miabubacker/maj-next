@@ -264,6 +264,9 @@ justify-self: center ;
       height: 100%;
       /* margin-left: 20px; */
     }
+    .collage--gold::before {
+      display: none;
+    }
 
 }
 
