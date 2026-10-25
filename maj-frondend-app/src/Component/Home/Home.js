@@ -16,6 +16,18 @@ import Catlalogthree from "../Images/catlalogthree.png";
 import Catlalogfour from "../Images/catlalogfour.png";
 import { useState } from "react";
 import useMediaQuery from "../Assets/UseMediaQuery/UseMediaQuery.js";
+import Saravana from '../Images/clientsImgs/saravana.png'
+import Fathima from '../Images/clientsImgs/fathima.png'
+import Mohanlal from '../Images/clientsImgs/mohanlal.png'
+import Pothys from '../Images/clientsImgs/pothys.png'
+import Sreekumaran from '../Images/clientsImgs/sreekumaran.png'
+import Malabar from '../Images/clientsImgs/malabar.png'
+import Marquee from "./Marquee/Marquee.js";
+
+import Honest from '../Images/wbcicon/honest.png'
+import Longterm from '../Images/wbcicon/longterm.png'
+import Personal_attention from '../Images/wbcicon/personal_attention.png'
+import Relaible from '../Images/wbcicon/relaible.png'
 
   function Home() {
    const [products, setProducts] = useState([
@@ -24,6 +36,36 @@ import useMediaQuery from "../Assets/UseMediaQuery/UseMediaQuery.js";
     { id: 3, alt: "Gold chain earrings", image: Catlalogthree },
     { id: 4, alt: "Gold chain pendant", image: Catlalogfour },
   ]);
+  const testimonials = [
+  {
+    brand: 'Honest craftsmanship',
+   initials: <img src={Honest}/>,
+    // name: 'Ananya Kapoor',
+    // role: 'Marketing Director',
+    quote:'Every chain is made and checked at our own factory, so what you order is what you receive.'
+  },
+  {
+    brand: 'Personal Attention',
+    initials: <img src={Personal_attention}/>,
+    // name: 'Marcus Webb',
+    // role: 'Founder & Creative Lead',
+    quote:'You deal with the people who make your product. We listen, advise, and adjust to your needs.'
+  },
+  {
+    brand: 'Long-term relationships',
+ initials: <img src={Longterm}/>,
+    // name: 'Priya Raman',
+    // role: 'Head of Brand',
+    quote:'We grow with our clients and look after them for years, not just for one order.',
+  },
+  {
+    brand: 'Reliable delivery',
+     initials: <img src={Relaible}/>,
+    // name: 'Daniel Osei',
+    // role: 'Growth Lead',
+    quote:'We value your timelines, so your stock arrives when you expect it.',
+  },
+];
   const isMobile = useMediaQuery('(max-width: 700px)');
    const [sectionTextContent,setSectionTextContent]=useState({stair:{
     header1:'Everyday Gold,',
@@ -34,6 +76,14 @@ import useMediaQuery from "../Assets/UseMediaQuery/UseMediaQuery.js";
 paragraph:' Over the past two decades, our focus has never changed: honest craftsmanship, personal attention, and jewellery that fits seamlessly into real life. From our factory, we proudly serve customers across Tamil Nadu, building relationships one chain at a time.'
    }
    })
+    const clients = [
+     { name: "Brand One", logo: Saravana },
+     { name: "Brand Two", logo:Fathima  },
+      { name: "Brand Three", logo:Pothys  },
+     { name: "Brand four", logo: Mohanlal },
+      { name: "Brand five", logo: Sreekumaran },
+        { name: "Brand SIX", logo: Malabar },
+   ];
   const [index, setIndex] = useState(0);
   const [startX, setStartX] = useState(null);
   const total = products.length;
@@ -175,7 +225,49 @@ paragraph:' Over the past two decades, our focus has never changed: honest craft
       </Reveal>
       </>)}
     </section>
-    {/* section-4 */}
+{/* section-4 */}
+    <section className="wbcu">
+        <Reveal direction="left" aria-hidden="true">
+      <h2 className="wbcu__heading">Why Brands Chose <span className="wbcu_Us">Us?</span></h2>
+      </Reveal>
+ <Reveal direction="right" aria-hidden="true">
+      <div className="wbcu__grid">
+        {testimonials.map((t) => (
+          <article className="wbcu__card" key={t.brand}>
+            <p className="wbcu__brand">{t.brand}</p>
+
+            <div className="wbcu__avatar" aria-hidden="true">
+              {t.initials}
+            </div>
+
+            {/* <p className="wbcu__name">{t.name}</p> */}
+
+            <p className="wbcu__quote">{t.quote}</p>
+
+            {/* <p className="wbcu__role">{t.role}</p> */}
+          </article>
+        ))}
+      </div>
+      </Reveal>
+    </section>
+    {/* section-5 */}
+    <section className="brands-section">
+      <Reveal direction="left" aria-hidden="true">
+      <div className="bwg">
+         <h2 className="brands-heading">
+        <span className="brands-blue">Brands</span>{" "}
+        <span className="brands-gold">We’re Grown With:</span>
+      </h2>
+      <p className="bwg_paragraph">Over 30+ brands across Tamil Nadu trust MAJ GOLD for chains made with precision and care.</p>
+
+      </div>
+      </Reveal>
+          
+<Reveal direction="right" aria-hidden="true">
+       <Marquee items={clients} speed={30} />
+       </Reveal>
+    </section>
+{/* section-6 */}
     <section className="products" id="products">
       <WordReveal as="h2" text="Discover Our Elegant Collections" />
       <Reveal as="p" className="products__intro" delay={0.2}>
