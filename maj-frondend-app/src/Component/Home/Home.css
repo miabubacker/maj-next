@@ -494,6 +494,12 @@ justify-self: center ;
   .split--story .copy {
     margin-left: 0;
   }
+  .wbcu{
+    overflow: hidden;
+  }
+  .brands-section{
+    overflow: hidden;
+  }
   .craft-1, .craft-2 ,.craft-3{
     display: none;
   }

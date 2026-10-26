@@ -53,3 +53,7 @@
   .marquee { overflow-x: auto; -webkit-mask-image: none; mask-image: none; }
   .marquee__track { animation: none; }
 }
+@media (max-width: 700px) {
+    .marquee:hover .marquee__track,
+.marquee:focus-within .marquee__track { animation-play-state: inherit; }
+}

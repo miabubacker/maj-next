@@ -239,9 +239,6 @@ paragraph:' Over the past two decades, our focus has never changed: honest craft
             <div className="wbcu__avatar" aria-hidden="true">
               {t.initials}
             </div>
-
-            {/* <p className="wbcu__name">{t.name}</p> */}
-
             <p className="wbcu__quote">{t.quote}</p>
 
             {/* <p className="wbcu__role">{t.role}</p> */}
