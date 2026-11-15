@@ -52,7 +52,7 @@
 }
 
 .clients-hero h1 span {
-  color: #c4a15e;
+  /* color: #c4a15e; */
 }
 
 .clients-hero-content p {
@@ -272,8 +272,14 @@
 
 /* Tablet */
 @media (max-width: 1024px) {
+    .clients-hero{
+        height: fit-content;
+    }
   .clients-story {
     gap: 45px;
+  }
+   .headerExp{
+    display: none;
   }
 
   .brands-grid {
