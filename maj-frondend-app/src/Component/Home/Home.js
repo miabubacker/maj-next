@@ -23,7 +23,6 @@ import Pothys from '../Images/clientsImgs/pothys.png'
 import Sreekumaran from '../Images/clientsImgs/sreekumaran.png'
 import Malabar from '../Images/clientsImgs/malabar.png'
 import Marquee from "./Marquee/Marquee.js";
-
 import Honest from '../Images/wbcicon/honest.png'
 import Longterm from '../Images/wbcicon/longterm.png'
 import Personal_attention from '../Images/wbcicon/personal_attention.png'

@@ -9,7 +9,7 @@ const Header = () => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
   const [menuItems, setMenuItems] = useState([{ name: "Home", link: "/" },
     { name: "Products", link: "products" },
-    { name: "Clients", link: "clients" },
+    { name: "Clientales", link: "CLIENTALES" },
     { name: "Contact Us", link: "location" },]);
   const [isScrolled, setIsScrolled] = useState(false);
   const isMobile = useMediaQuery('(max-width: 700px)');
